@@ -19,6 +19,10 @@ Bundle 'mateusbraga/vim-spell-pt-br'
 Plugin 'vim-scripts/indentpython.vim'
 " Autocompletion
 Bundle 'Valloric/YouCompleteMe'
+" Syntax Checking
+Plugin 'vim-syntastic/syntastic'
+" PEP8 Checking
+Plugin 'nvie/vim-flake8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,13 +42,17 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
+set nu
 set ignorecase
+set noswapfile
+set nobackup
+set nowritebackup
 
 highlight ColorColumn ctermbg=7
 set colorcolumn=80
 set encoding=utf-8
 
-"" Split navigations
+"" Split windows navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -59,6 +67,10 @@ nnoremap <space> za
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+"" AutoCompleteMe setup
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 "" Python's specific setup
 au BufNewFile,BufRead *.py set tabstop=4
 au BufNewFile,BufRead *.py set softtabstop=4
@@ -67,6 +79,7 @@ au BufNewFile,BufRead *.py set textwidth=79
 au BufNewFile,BufRead *.py set expandtab
 au BufNewFile,BufRead *.py set autoindent
 au BufNewFile,BufRead *.py set fileformat=unix
+let python_highlight_all=1
 
 "" LaTeX specific setup
 au BufNewFile,BufRead *.tex set tabstop=2
