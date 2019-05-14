@@ -20,7 +20,7 @@ Plugin 'vim-scripts/indentpython.vim'
 " Autocompletion
 Bundle 'Valloric/YouCompleteMe'
 " Syntax Checking
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 " PEP8 Checking
 Plugin 'nvie/vim-flake8'
 
@@ -91,9 +91,18 @@ au BufNewFile,BufRead *.tex set autoindent
 au BufNewFile,BufRead *.tex set fileformat=unix
 
 "" Web development setup
-au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2
-au BufNewFile,BufRead *.js, *.html, *.css set softtabstop=2
-au BufNewFile,BufRead *.js, *.html, *.css set shiftwidth=2
+au BufNewFile,BufRead *.html set tabstop=2
+au BufNewFile,BufRead *.html set tabstop=2
+au BufNewFile,BufRead *.html set softtabstop=2
+au BufNewFile,BufRead *.html set shiftwidth=2
+au BufNewFile,BufRead *.html set expandtab
+au BufNewFile,BufRead *.html set autoindent
+au BufNewFile,BufRead *.css set tabstop=2
+au BufNewFile,BufRead *.css set tabstop=2
+au BufNewFile,BufRead *.css set softtabstop=2
+au BufNewFile,BufRead *.css set shiftwidth=2
+au BufNewFile,BufRead *.css set expandtab
+au BufNewFile,BufRead *.css set autoindent
 
 "" YAML's specific setup
 au BufNewFile,BufRead *.yml set tabstop=2
