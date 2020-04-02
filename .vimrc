@@ -52,6 +52,9 @@ highlight ColorColumn ctermbg=7
 set colorcolumn=80
 set encoding=utf-8
 
+"Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 "" Split windows navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
