@@ -13,8 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 """""""""""""
 " Markdown plugin for vim
 Plugin 'kannokanno/previm'
-" PT BR spell
-Bundle 'mateusbraga/vim-spell-pt-br'
 " Indent Python
 Plugin 'vim-scripts/indentpython.vim'
 " Autocompletion
@@ -51,6 +49,10 @@ set nowritebackup
 highlight ColorColumn ctermbg=7
 set colorcolumn=80
 set encoding=utf-8
+
+"Spelling
+set spelllang=pt_BR
+set spellfile=~/nextcloud/vim/spell/pt.utf-8.add
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
