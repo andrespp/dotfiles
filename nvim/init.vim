@@ -82,6 +82,13 @@ call plug#begin('~/.config/nvim/plugged')
 " Native LSP -> https://github.com/neovim/nvim-lspconfig
 Plug 'neovim/nvim-lspconfig'
 
+" Autocompletion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'onsails/lspkind-nvim'
+
 " TELESCOPE https://github.com/nvim-telescope/telescope.nvim
 " Telescope requires plenary to function
 Plug 'nvim-lua/plenary.nvim'
