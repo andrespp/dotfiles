@@ -75,10 +75,6 @@ set spellfile=~/nextcloud/vim/spell/pt.utf-8.add
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
 
-" COC -> https://github.com/neoclide/coc.nvim
-" Use release branch (recommend)
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Native LSP -> https://github.com/neovim/nvim-lspconfig
 Plug 'neovim/nvim-lspconfig'
 
@@ -88,6 +84,9 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 " TELESCOPE https://github.com/nvim-telescope/telescope.nvim
 " Telescope requires plenary to function
