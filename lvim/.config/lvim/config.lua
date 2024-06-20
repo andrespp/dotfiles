@@ -12,7 +12,7 @@ lvim.plugins = {
       "TmuxNavigateDown",
       "TmuxNavigateUp",
       "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
+      -- "TmuxNavigatePrevious",
     },
     keys = {
       { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
@@ -21,7 +21,11 @@ lvim.plugins = {
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
     },
   },
-  { "vim-test/vim-test" },
+  {
+    "vim-test/vim-test",
+    vim.keymap.set('n', '<Space>t', ':TestNearest<CR>'),
+    vim.keymap.set('n', '<Space>T', ':TestFile<CR>'),
+  },
 }
 vim.opt.colorcolumn = "80" -- highligh column limit
 vim.opt.relativenumber = true
