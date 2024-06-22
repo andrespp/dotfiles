@@ -2,6 +2,10 @@
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
+-- install plugins
+lvim.plugins = {
+}
+
 lvim.plugins = {
 	{ "mzlogin/vim-markdown-toc" },
   { "github/copilot.vim" },
@@ -26,6 +30,9 @@ lvim.plugins = {
     vim.keymap.set('n', '<Space>t', ':TestNearest<CR>'),
     vim.keymap.set('n', '<Space>T', ':TestFile<CR>'),
   },
+  -- python ide
+  {"ChristianChiarulli/swenv.nvim"},
+  {"stevearc/dressing.nvim"},
 }
 vim.opt.colorcolumn = "80" -- highligh column limit
 vim.opt.relativenumber = true
@@ -47,3 +54,31 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- trim trailing whitespace
 vim.g.editorconfig_trim_trailing_whitespace = true
+
+-------------------------------------------------------------------------------
+-- Python Settings
+-------------------------------------------------------------------------------
+
+-- automatically install python syntax highlighting
+lvim.builtin.treesitter.ensure_installed = {
+  "python",
+}
+
+-- setup formatting (:MasonInstall black)
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { name = "black" },
+  -- { command = "black", args =  "--single-quote" },
+}
+lvim.format_on_save.enabled = false
+lvim.format_on_save.pattern = { "*.py" }
+
+-- setup linting
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup { { command = "pylint", filetypes = { "python" } } }
+
+-- binding for switching
+lvim.builtin.which_key.mappings["C"] = {
+  name = "Python",
+  c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
+}
