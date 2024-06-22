@@ -7,6 +7,23 @@ lvim.plugins = {
 }
 
 lvim.plugins = {
+  {
+    'linux-cultist/venv-selector.nvim',
+    dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
+    opts = {
+      -- Your options go here
+      name = { "venv", ".venv" },
+      -- auto_refresh = false
+    },
+    event = 'VeryLazy', -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+    keys = {
+      -- Keymap to open VenvSelector to pick a venv.
+      { '<leader>sv', '<cmd>VenvSelect<cr>' },
+      { '<leader>vs', '<cmd>VenvSelect<cr>' },
+      -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
+      { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
+    },
+  },
 	{ "mzlogin/vim-markdown-toc" },
   { "github/copilot.vim" },
   {
@@ -30,9 +47,6 @@ lvim.plugins = {
     vim.keymap.set('n', '<Space>t', ':TestNearest<CR>'),
     vim.keymap.set('n', '<Space>T', ':TestFile<CR>'),
   },
-  -- python ide
-  {"ChristianChiarulli/swenv.nvim"},
-  {"stevearc/dressing.nvim"},
 }
 vim.opt.colorcolumn = "80" -- highligh column limit
 vim.opt.relativenumber = true
@@ -77,8 +91,3 @@ lvim.format_on_save.pattern = { "*.py" }
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup { { command = "pylint", filetypes = { "python" } } }
 
--- binding for switching
-lvim.builtin.which_key.mappings["C"] = {
-  name = "Python",
-  c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
-}
