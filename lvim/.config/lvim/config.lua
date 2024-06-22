@@ -7,21 +7,26 @@ lvim.plugins = {
 }
 
 lvim.plugins = {
-  {
-    'linux-cultist/venv-selector.nvim',
-    dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
+    {
+    "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+    },
     opts = {
       -- Your options go here
       name = { "venv", ".venv" },
       -- auto_refresh = false
     },
-    event = 'VeryLazy', -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+    lazy = false,
+    branch = "regexp", -- This is the regexp branch, use this for the new version
+    config = function()
+      require("venv-selector").setup()
+    end,
     keys = {
-      -- Keymap to open VenvSelector to pick a venv.
+      { ",v", "<cmd>VenvSelect<cr>" },
       { '<leader>sv', '<cmd>VenvSelect<cr>' },
-      { '<leader>vs', '<cmd>VenvSelect<cr>' },
-      -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
-      { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
     },
   },
 	{ "mzlogin/vim-markdown-toc" },
@@ -33,13 +38,14 @@ lvim.plugins = {
       "TmuxNavigateDown",
       "TmuxNavigateUp",
       "TmuxNavigateRight",
-      -- "TmuxNavigatePrevious",
+      "TmuxNavigatePrevious",
     },
     keys = {
       { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
       { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
       { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
   {
