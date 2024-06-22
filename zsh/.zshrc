@@ -46,3 +46,7 @@ alias tmux='tmux -u'
 # poetry
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
+
+# fzf - key bindings and fuzzy completion
+source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
