@@ -42,6 +42,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:/home/andre/.nvm/versions/node/v18.20.2/bin"
 
 alias tmux='tmux -u'
+alias ls='ls --color=auto'
 
 # poetry
 fpath+=~/.zfunc
