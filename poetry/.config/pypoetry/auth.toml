@@ -1,0 +1,8 @@
+[certificates.sefa]
+cert = false
+
+[certificates.sefa-nexus]
+cert = false
+
+[certificates.foo]
+cert = false
