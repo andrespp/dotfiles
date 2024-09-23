@@ -49,9 +49,14 @@ lvim.plugins = {
     },
   },
   {
+    "preservim/vimux",
+  },
+  {
     "vim-test/vim-test",
     vim.keymap.set('n', '<Space>t', ':TestNearest<CR>'),
     vim.keymap.set('n', '<Space>T', ':TestFile<CR>'),
+    vim.cmd("let test#strategy = 'vimux'"),
+    -- vim.cmd("let test#strategy = 'neovim_sticky'"),
   },
 }
 vim.opt.colorcolumn = "80" -- highligh column limit
