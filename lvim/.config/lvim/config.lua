@@ -7,11 +7,10 @@ lvim.plugins = {
 }
 
 lvim.plugins = {
-    {
+  {
     "linux-cultist/venv-selector.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
-      "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
       { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
     },
     opts = {
@@ -58,6 +57,11 @@ lvim.plugins = {
     vim.cmd("let test#strategy = 'vimux'"),
     -- vim.cmd("let test#strategy = 'neovim_sticky'"),
   },
+  -- debug plugins
+  -- "mfussenegger/nvim-dap",
+  "mfussenegger/nvim-dap-python",
+  "nvim-neotest/neotest",
+  "nvim-neotest/neotest-python",
 }
 vim.opt.colorcolumn = "80" -- highligh column limit
 vim.opt.relativenumber = true
@@ -102,3 +106,9 @@ lvim.format_on_save.pattern = { "*.py" }
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup { { command = "ruff", filetypes = { "python" } } }
 
+-- setup debug adapter
+lvim.builtin.dap.active = true
+local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+pcall(function()
+  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+end)
