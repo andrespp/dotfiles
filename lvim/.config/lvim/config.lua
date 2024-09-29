@@ -3,8 +3,6 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 -- install plugins
-lvim.plugins = {
-}
 
 lvim.plugins = {
   {
@@ -62,7 +60,14 @@ lvim.plugins = {
   "mfussenegger/nvim-dap-python",
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
+
+  {'kevinhwang91/nvim-ufo', dependencies = {'kevinhwang91/promise-async'}}
 }
+
+-- nvim-ufo
+require "nvim-ufo"
+
+-- General Settings
 vim.opt.colorcolumn = "80" -- highligh column limit
 vim.opt.relativenumber = true
 
