@@ -50,3 +50,7 @@ autoload -Uz compinit && compinit
 
 # fzf - key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# hdfs
+export PATH="$PATH:/opt/hadoop-3.1.1/bin"
+export JAVA_HOME=/usr/lib/jvm/temurin-8-jdk-amd64
