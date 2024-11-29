@@ -6,3 +6,6 @@ cert = false
 
 [certificates.foo]
 cert = false
+
+[certificates.sefa2]
+cert = false
