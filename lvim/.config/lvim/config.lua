@@ -109,7 +109,21 @@ lvim.format_on_save.pattern = { "*.py" }
 
 -- setup linting
 local linters = require "lvim.lsp.null-ls.linters"
-linters.setup { { command = "ruff", filetypes = { "python" } } }
+linters.setup {
+  { command = "ruff", filetypes = { "python" } },
+  {
+    command = "sqlfluff",
+    args = { "--dialect", "postgres" },
+    filetypes = { "sql" }
+  },
+}
+
+-- tab space
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.sql" },
+  command = "setlocal tabstop=4 shiftwidth=4"
+})
+
 
 -- setup debug adapter
 lvim.builtin.dap.active = true
