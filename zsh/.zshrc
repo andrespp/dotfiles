@@ -54,3 +54,6 @@ autoload -Uz compinit && compinit
 # hdfs
 export PATH="$PATH:/opt/hadoop-3.1.1/bin"
 export JAVA_HOME=/usr/lib/jvm/temurin-8-jdk-amd64
+
+# rust cargo
+export PATH="$PATH:$HOME/.cargo/bin"
