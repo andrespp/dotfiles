@@ -6,14 +6,11 @@
 [alias]
 	hist = log --all --oneline --graph --decorate
 
+[safe]
+	directory = /home/ec2-user/uranus-api-deltasync/uranus-api-deltasync
 [credential "https://github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
-[safe]
-	directory = /home/andre/dev-worker03/pipeline-bpe
-	directory = /home/andre/dev-worker03/analytics-spark
-	directory = /home/andre/dev-worker03/analytics-cdp
-	directory = /home/andre/dev-worker03/pipeline-scanc
