@@ -99,24 +99,24 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 -- setup formatting (:MasonInstall black)
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-  { name = "ruff" },
-  -- { command = "black", args =  "--single-quote" },
-}
-lvim.format_on_save.enabled = false
-lvim.format_on_save.pattern = { "*.py" }
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup {
+--   { name = "ruff" },
+--   -- { command = "black", args =  "--single-quote" },
+-- }
+-- lvim.format_on_save.enabled = false
+-- lvim.format_on_save.pattern = { "*.py" }
 
--- setup linting
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  { command = "ruff", filetypes = { "python" } },
-  {
-    command = "sqlfluff",
-    args = { "--dialect", "postgres" },
-    filetypes = { "sql" }
-  },
-}
+-- -- setup linting
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+--   { command = "ruff", filetypes = { "python" } },
+--   {
+--     command = "sqlfluff",
+--     args = { "--dialect", "postgres" },
+--     filetypes = { "sql" }
+--   },
+-- }
 
 -- tab space
 vim.api.nvim_create_autocmd("BufEnter", {
