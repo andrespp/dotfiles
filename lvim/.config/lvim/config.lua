@@ -3,9 +3,14 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 -- install plugins
+--
+require 'nvim-treesitter.configs'.setup {
+ignore_install = { "yaml" },
+}
 
 lvim.plugins = {
   {
+    -- "ikatyang/tree-sitter-yaml", -- yaml syntax highlighting workaround
     "linux-cultist/venv-selector.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
